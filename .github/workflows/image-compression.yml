@@ -2,10 +2,22 @@ name: Compress Images
 on:
   pull_request:
     paths:
-      - '**.jpg'
-      - '**.jpeg'
-      - '**.png'
-      - '**.webp'
+      - 'abp/abp_io/**/*.jpg'
+      - 'abp/abp_io/**/*.jpeg'
+      - 'abp/abp_io/**/*.png'
+      - 'abp/abp_io/**/*.webp'
+      - 'blog/**/*.jpg'
+      - 'blog/**/*.jpeg'
+      - 'blog/**/*.png'
+      - 'blog/**/*.webp'
+      - 'docs/**/*.jpg'
+      - 'docs/**/*.jpeg'
+      - 'docs/**/*.png'
+      - 'docs/**/*.webp'
+      - 'websites/**/*.jpg'
+      - 'websites/**/*.jpeg'
+      - 'websites/**/*.png'
+      - 'websites/**/*.webp'
 jobs:
   build:
     if: github.event.pull_request.head.repo.full_name == github.repository
