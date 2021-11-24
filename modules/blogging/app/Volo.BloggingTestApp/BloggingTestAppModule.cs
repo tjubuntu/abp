@@ -86,7 +86,12 @@ namespace Volo.BloggingTestApp
                 options.ConnectionStrings.Default = configuration.GetConnectionString(connStringName);
             });
 
-#if !MONGODB
+#if MONGODB
+            Configure<Volo.Abp.Uow.AbpUnitOfWorkDefaultOptions>(options =>
+            {
+                options.TransactionBehavior = Volo.Abp.Uow.UnitOfWorkTransactionBehavior.Disabled;
+            });
+#else
             Configure<AbpDbContextOptions>(options =>
             {
                 options.UseSqlServer();
