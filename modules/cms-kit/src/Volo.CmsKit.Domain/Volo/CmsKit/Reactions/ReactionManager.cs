@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Volo.Abp;
 using Volo.Abp.MultiTenancy;
+using Volo.Abp.Uow;
 
 namespace Volo.CmsKit.Reactions
 {
@@ -53,6 +54,7 @@ namespace Volo.CmsKit.Reactions
                 .ToList();
         }
 
+        [UnitOfWork(true)]
         public virtual async Task<UserReaction> GetOrCreateAsync(
             Guid creatorId,
             [NotNull] string entityType,
